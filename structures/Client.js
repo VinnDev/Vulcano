@@ -3,7 +3,7 @@ import { Vulkava } from "vulkava";
 import { readdirSync } from "vulkava";
 
 import config from "./settings/config.js";
-import nodes from "./settings/nodes.json";
+import nodes from "./settings/nodes.js";
 
 export default class MusicBot extends Client {
     constructor() {
@@ -17,7 +17,7 @@ export default class MusicBot extends Client {
                 GatewayIntentBits.GuildMembers,
                 GatewayIntentBits.GuildMessages,
                 GatewayIntentBits.GuildVoiceStates,
-                GayewayIntentBits.MessageContent,
+                GatewayIntentBits.MessageContent,
             ]
         });
 
@@ -40,7 +40,7 @@ export default class MusicBot extends Client {
         console.log("[Info] Start reload 'commands'")
 
         readdirSync("./commands").forEach(folder => {
-            readdirSync(`./commands/${folder}`).then(async(file) => {
+            readdirSync(`./commands/${folder}`).forEach(async(file) => {
                 const command = (await import(`../commands/${folder}/${file}`)).default;
                 command.category = folder;
 
