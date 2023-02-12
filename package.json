@@ -1,0 +1,23 @@
+{
+  "name": "musicbot",
+  "version": "1.0.0-b",
+  "description": "A discord music bot built with vulkava and discord.js v14",
+  "main": "index.js",
+  "type": "module",
+  "depedencies": {
+      "discord.js": "^14.7.1",
+      "vulkava": "^1.6.0"
+  },
+  "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vinn#6779",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VinnOfficial/MusicBot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VinnOfficial/MusicBot/issues"
+  },
+  "homepage": "https://github.com/VinnOfficial/MusicBot#readme"
+}
