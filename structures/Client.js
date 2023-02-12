@@ -60,11 +60,13 @@ export default class MusicBot extends Client {
                         const event = (await import(`../events/Client/${file}`)).default;
 
                         this.on(file.split(".")[0], event.bind(null, this));
+                        break;
                     }
                     case "Vulkava": {
                         const event = (await import(`../events/Vulkava/${file}`)).default;
 
                         this.vulkava.on(file.split(".")[0], event.bind(null, this));
+                        break;
                     }
                 }
             });
