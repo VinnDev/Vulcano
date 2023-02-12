@@ -9,8 +9,7 @@
       "vulkava": "^1.6.0"
   },
   "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "build": "node ."
+      "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vinn#6779",
   "repository": {
