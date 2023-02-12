@@ -30,8 +30,8 @@ export default class MusicBot extends Client {
                 this.guilds.cache.get(guild)?.shard.send(payload);
             }
         });
-        this.vulkava.on("error", (node, error) => console.log(`[Vulkava] Node ${node.identifier} Error!`, error));
-        this.vulkava.on("warn", (node, info) => console.log(`[Vulkava] Node ${node.identifier} Warning!`, info));
+        this.vulkava.on("error", (node, error) => console.log(`[Vulkava] ❌ Node ${node.identifier} Error!`, error));
+        this.vulkava.on("warn", (node, info) => console.log(`[Vulkava] ❗ Node ${node.identifier} Warning!`, info));
 
         this.on("error", console.log);
         this.on("warn", console.log);
