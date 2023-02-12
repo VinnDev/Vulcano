@@ -1,7 +1,7 @@
 {
   "name": "musicbot",
   "version": "1.0.0-b",
-  "description": "A discord music bot built with vulkava and discord.js v14",
+  "description": "A discord bot built with vulkava and discord.js v14",
   "main": "index.js",
   "type": "module",
   "depedencies": {

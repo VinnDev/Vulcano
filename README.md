@@ -1,2 +1,2 @@
 # MusicBot
-A discord music bot built with vulkava and discord.js v14
+A discord bot built with vulkava and discord.js v14
