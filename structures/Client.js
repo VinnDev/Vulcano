@@ -2,8 +2,8 @@ import { Client, Collection, GatewayIntentBits } from "discord.js";
 import { Vulkava } from "vulkava";
 import { readdirSync } from "vulkava";
 
-import config from "./settings/config.js";
-import nodes from "./settings/nodes.js";
+import config from "../settings/config.js";
+import nodes from "../settings/nodes.js";
 
 export default class MusicBot extends Client {
     constructor() {
