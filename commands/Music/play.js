@@ -3,7 +3,7 @@ export default {
     description: "Playing a song",
     execute: async(client, message, args) => {
         if (!args.length) return message.reply("Please input the song Title or Link!");
-        if (!member.member.voice?.channel) return message.reply("Please join the voice channel!");
+        if (!message.member.voice?.channel) return message.reply("Please join the voice channel!");
 
         const query = args.join(" ");
         const searched = await message.reply(`🔎 Searching \`${query.length > 100 ? query.substr(0, 97)+"..." : query}\``);
