@@ -1,3 +1,4 @@
+import { EmbedBuilder } from "discord.js";
 import { readdirSync } from "node:fs";
 
 export default {
