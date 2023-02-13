@@ -10,7 +10,8 @@ export default {
 
         const embed = new EmbedBuilder()
             .setColor(client.config.colors)
-            .setAuthor({ name: "Help Commands", iconURL: client.user.displayAvatarURL({ dynamic: true, size: 256 }) })
+            .setTitle("Help Commands")
+            .setThumbnail(client.user.displayAvatarURL({ dynamic: true, size: 512 }))
             .setDescription("Here is my commands list.");
 
         categories.forEach(category => {
