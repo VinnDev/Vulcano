@@ -10,11 +10,11 @@ export default {
 
         const embed = new EmbedBuilder()
             .setColor(client.config.colors)
-            .setAuthor({ title: "Help Commands", iconURL: client.user.displayAvatarURL({ dynamic: true, size: 256 }) })
+            .setAuthor({ name: "Help Commands", iconURL: client.user.displayAvatarURL({ dynamic: true, size: 256 }) })
             .setDescription("Here is my commands list.");
 
         categories.forEach(category => {
-            embed.addFields({ name: category, value: client.commands.filter(command => command.category === category).map(cmd => `\`${cmd.name}\``).join(" ")});
+            embed.addFields({ name: category, value: client.commands.filter(command => command.category === category).map(cmd => `\`${cmd.name}\``).join(" ") });
         });
 
         message.reply({ embeds: [embed] });
