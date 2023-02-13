@@ -10,7 +10,7 @@ export default (client, message) => {
     if (!command) return;
 
     if (command.usage && !Context.args.length) {
-        return message.reply(`❌ Please input the command arguments! Example: \`${client.prefix}${command.name} [${command.usage.split("|").map(usage => `\`${usage}\``).join(" / ")}]\``);
+        return message.reply(`❌ Please input the command arguments! Example: \`${client.config.prefix}${command.name} [${command.usage.split("|").map(usage => `[${usage}]`).join(" / ")}]\``);
     }
 
     Context.player = client.vulkava.players.get(message.guildId);
