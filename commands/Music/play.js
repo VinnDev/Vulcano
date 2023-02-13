@@ -1,13 +1,18 @@
 export default {
     name: "play",
     description: "Playing a song",
-    execute: async(client, message, args) => {
-        if (!args.length) return message.reply("Please input the song Title or Link!");
-        if (!message.member.voice?.channel) return message.reply("Please join the voice channel!");
-
-        const query = args.join(" ");
+    aliases: ["p"],
+    optional: {
+        inVoiceChannel: true,
+        sameVoiceChannel: true
+    },
+    usage: "song title|song link",
+    execute: async(client, message, ctx) => {
+        const query = ctx.args.join(" ");
         const searched = await message.reply(`🔎 Searching \`${query.length > 100 ? query.substr(0, 97)+"..." : query}\``);
-        const result = await client.vulkava.search(query);
+        const result = await client.vulkava.search(query).catch(console.error);
+
+        if (!result) return searched.edit(":x: Result not found. Try again!");
 
         if (result.loadType === "LOAD_FAILED") {
             return searched.edit(`:x: Error! I can't loaded. Because: ${result.exception.message}`);
@@ -17,13 +22,13 @@ export default {
         }
 
         const player = client.vulkava.createPlayer({
-            guildId: message.guild.id,
+            guildId: message.guildId,
             voiceChannelId: message.member.voice.channelId,
             textChannelId: message.channelId,
             selfDeaf: true
         });
 
-        player.connect(); // Connects to the voice channel
+        player.connect();
 
         if (result.loadType === 'PLAYLIST_LOADED') {
             for (const track of result.tracks) {

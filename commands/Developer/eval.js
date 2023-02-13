@@ -5,18 +5,25 @@ import util from 'util';
 export default {
     name: "eval",
     description: "Evaluate code for developer testing",
-    execute: async(client, message, args) => {
+    execute: async(client, message, ctx) => {
+        const embed = new Discord.EmbedBuilder({ color: Discord.Colors.Blue });
+        const code = ctx.args.join(" ");
+
         try {
-            let code = args.join(" ");
-            if (!args.length) code = 'String("OwO What\'s This?")';
+            if (!ctx.args.length) return message.react("❌");
 
             let evaled = await eval(code);
                 evaled = clean(evaled);
 
-            message.reply(`\`\`\`js\n${evaled}\`\`\``);
+            embed.setDescription(`\`\`\`js\n${evaled}\`\`\``);
+
+            message.reply({ embeds: [embed] });
         }
         catch (error) {
-            message.reply(`**❌ Error!**\`\`\`js\n${clean(error)}\n\`\`\``);
+            embed.setColor(Discord.Colors.Red);
+            embed.setDescription(`**❌ Error!**\`\`\`js\n${clean(error)}\n\`\`\``);
+
+            message.reply({ embeds: [embed] });
         }
     }
 };
