@@ -1,5 +1,5 @@
 export default (client, message) => {
-    if (message.author.bot ?? !message.content.toLowerCase().startsWith(client.config.prefix.toLowerCase())) return;
+    if (message.author.bot || !message.content.toLowerCase().startsWith(client.config.prefix.toLowerCase())) return;
 
     const args = message.content.trim().slice(client.config.prefix.length).split(/ +/g);
     const cmd = args.shift().toLowerCase();
