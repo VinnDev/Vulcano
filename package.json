@@ -1,6 +1,6 @@
 {
   "name": "musicbot",
-  "version": "1.0.0-b",
+  "version": "1.0.1-b",
   "description": "A discord bot built with vulkava and discord.js v14",
   "main": "index.js",
   "type": "module",
@@ -9,6 +9,7 @@
       "vulkava": "^1.6.0"
   },
   "scripts": {
+      "start": "node index.js",
       "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vinn#6779",
