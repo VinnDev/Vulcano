@@ -19,7 +19,7 @@ export default (client, message) => {
     if (command.optional.inActive && message.guild.members.me.voice?.channel && Context.player) {
         if (message.guild.members.me.voice?.channel.members.size > 1 && Context.player.playing && Context.player.current.requester.id !== message.author.id) return message.reply("I have been active in the voice channel.");
     }
-    if (command.optional.sameVoiceChannel && message.member.voice.channelId !== message.guild.members.me.voice.channelId) return message.reply("You are not in a same voice channel with me.");
+    if (command.optional.sameVoiceChannel && message.guild.members.me.voice?.channel && message.member.voice.channelId !== message.guild.members.me.voice.channelId) return message.reply("You are not in a same voice channel with me.");
 
     try {
         command.execute(client, message, Context);
