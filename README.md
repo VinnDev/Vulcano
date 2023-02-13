@@ -9,8 +9,9 @@ A discord bot based on vulkava and discord.js v14
 ## 📄 Feature
 - [x] Music system (play, loop, skip, stop, and more...)
 - [x] Using prefix commands (message content)
-- [] Using slash commands (/)
-- [] Context commands interface (a combination of the prefix commands and slash commands)
+- [ ] Using slash commands (/)
+- [ ] Context commands interface (a combination of the prefix commands and slash commands)
+- [x] Easy to use
 
 ## 🔎 Support Source
 - [x] Youtube
