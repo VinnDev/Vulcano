@@ -1,4 +1,4 @@
-import Discord from 'discord.js-selfbot-v13';
+import Discord from "discord.js";
 
 import util from 'util';
 
