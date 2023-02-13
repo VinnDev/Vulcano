@@ -49,8 +49,16 @@ export default class MusicBot extends Client {
 
         readdirSync("./commands").forEach(folder => {
             readdirSync(`./commands/${folder}`).forEach(async(file) => {
-                const command = (await import(`../commands/${folder}/${file}`)).default;
-                command.category = folder;
+                const commands = (await import(`../commands/${folder}/${file}`)).default;
+
+                const command = {
+                    name: commands.name,
+                    category: folder,
+                    description: commands.description,
+                    aliases: commands.aliases || [],
+                    optional: commands.optional || {},
+                    execute: commands.execute
+                };
 
                 this.commands.set(command.name, command);
            });
