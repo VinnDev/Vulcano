@@ -35,8 +35,9 @@ npm install
 ```
 
 ## 📝 Configuration
-1. Setup .env file, see example at [`.env-example`](./.env-example)
-2. Setup config file at [`settings/config.js`](./settings/config.js)
+1. Setup __.env__ file, see example at [`.env-example`](./.env-example)
+2. Setup __config__ file at [`settings/config.js`](./settings/config.js)
+3. Setup __node__ lavalink at [`settings/nodes.js`](./settings/nodes.js)
 3. Start running your bot use `node .`
 4. Done.
 
