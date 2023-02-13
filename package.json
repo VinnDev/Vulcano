@@ -1,5 +1,5 @@
 {
-  "name": "musicbot",
+  "name": "vulcano",
   "version": "1.0.1-b",
   "description": "A discord bot built with vulkava and discord.js v14",
   "main": "index.js",
@@ -15,10 +15,10 @@
   "author": "Vinn#6779",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VinnOfficial/MusicBot.git"
+    "url": "git+https://github.com/VinnOfficial/Vulcano.git"
   },
   "bugs": {
-    "url": "https://github.com/VinnOfficial/MusicBot/issues"
+    "url": "https://github.com/VinnOfficial/Vulcano/issues"
   },
-  "homepage": "https://github.com/VinnOfficial/MusicBot#readme"
+  "homepage": "https://github.com/VinnOfficial/Vulcano#readme"
 }

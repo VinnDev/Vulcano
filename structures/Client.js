@@ -1,6 +1,6 @@
 import { Client, Collection, GatewayIntentBits } from "discord.js";
 import { Vulkava } from "vulkava";
-import { readdirSync } from "fs";
+import { readdirSync } from "node:fs";
 
 import config from "../settings/config.js";
 import nodes from "../settings/nodes.js";
