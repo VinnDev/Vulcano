@@ -6,8 +6,7 @@
 # Vulcano
 A discord bot based on [vulkava](https://vulkava.js.org) and [discord.js v14](https://discord.js.org/)
 
-**Wanna try a sample bot that uses this repository?**
-<button name="button" onclick="https://discord.com/api/oauth2/authorize?client_id=725006929667162222&permissions=8&scope=bot%20applications.commands">Add to Server</button>
+**Wanna try Sample Bot that uses this repository?** [Invite | Add to Server](https://discord.com/api/oauth2/authorize?client_id=725006929667162222&permissions=8&scope=bot%20applications.commands")
 
 ## 📄 Feature
 - [x] Music system (play, loop, skip, stop, and more...)
