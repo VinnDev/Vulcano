@@ -12,6 +12,6 @@ export default {
 
         ctx.player.setQueueLoop(!state);
 
-        message.reply(`Loop is \`${state ? "off" : "on"}\` now`);
+        message.reply({ embeds: [ctx.embed().setDescription(`Loop is \`${state ? "off" : "on"}\` now`)] });
     }
 }

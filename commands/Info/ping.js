@@ -5,7 +5,7 @@ export default {
         message.reply("Pinging...").then(msg => {
             const latency = msg.createdTimestamp - message.createdTimestamp;
 
-            msg.edit(`👋🏻 Pong! Latency **${latency}** ms`);
+            msg.edit({ embeds: [ctx.embed().setDescription(`👋🏻 Pong! Latency **${latency}** ms`)] });
         });
     }
 }

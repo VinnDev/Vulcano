@@ -1,4 +1,3 @@
-import { EmbedBuilder } from "discord.js";
 import { readdirSync } from "node:fs";
 
 export default {
@@ -11,8 +10,7 @@ export default {
         example: "help|play"
     },
     execute: (client, message, ctx) => {
-        const embed = new EmbedBuilder()
-            .setColor(client.config.colors);
+        const embed = ctx.embed();
 
         if (!ctx.args.length) {
             const categories = readdirSync("./commands").filter(category => category !== "Developer");

@@ -36,6 +36,11 @@ export default (client, message) => {
     if (command.optional.sameVoiceChannel && message.guild.members.me.voice?.channel && message.member.voice.channelId !== message.guild.members.me.voice.channelId) return message.reply({ embeds: [embed.setDescription("You are not in a same voice channel with me.")] });
 
     try {
+        Context.embed = (options = { color: client.config.colors }) => {
+            if (!options.color) options.color = client.config.colors;
+            return new EmbedBuilder(options);
+        }
+
         command.execute(client, message, Context);
     }
     catch(error) {

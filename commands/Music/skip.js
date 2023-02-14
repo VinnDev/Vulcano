@@ -17,7 +17,7 @@ export default {
             const song = ctx.player.current;
             ctx.player.skip();
 
-            message.reply(`Skipped **${song.title}**`);
+            message.reply({ embeds: [ctx.embed().setDescription(`Skipped **${song.title}**`)] });
         }
     }
 }

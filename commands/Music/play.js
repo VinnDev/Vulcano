@@ -13,17 +13,24 @@ export default {
         example: "maroon 5 memories|https://youtu.be/SlPhMPnQ58k"
     },
     execute: async(client, message, ctx) => {
+        let searchInfo = `🔎 Searching \`${query.length > 100 ? query.substr(0, 97)+"..." : query}\``;
+
         const query = ctx.args.join(" ");
-        const searched = await message.reply(`🔎 Searching \`${query.length > 100 ? query.substr(0, 97)+"..." : query}\``);
+        const searched = await message.reply(searchInfo);
         const result = await client.vulkava.search(query).catch(console.error);
 
-        if (!result) return searched.edit(":x: Result not found. Try again!");
+        if (!result) {
+            searchInfo += " is **Failed!**"
+            return searched.edit({ content: searchInfo, embeds: [ctx.embed({ color: 0xff0000, description: ":x: Result not found. Try again!" })] });
+        }
 
         if (result.loadType === "LOAD_FAILED") {
-            return searched.edit(`:x: Error! I can't loaded. Because: ${result.exception.message}`);
+            searchInfo += " is **Failed!**";
+            return searched.edit({ content: searchInfo, embeds: [ctx.embed({ color: 0xff0000, description: `:x: Error! I can't loaded. cause: ${result.exception.message}` })] });
         }
         else if (result.loadType === "NO_MATCHES") {
-            return searched.edit(':x: Nothing matches!');
+            searchInfo += " is **Failed!**";
+            return searched.edit({ content: searchInfo, embeds: [ctx.embed({ color: 0xff0000, description: ':x: Nothing matches!'})] });
         }
 
         const player = client.vulkava.createPlayer({
@@ -41,14 +48,14 @@ export default {
                 player.queue.add(track);
             }
 
-            searched.edit(`Playlist \`${result.playlistInfo.name}\` loaded!`);
+            searched.edit({ content: "", embeds: [ctx.embed().setDescription(`Playlist \`${result.playlistInfo.name}\` **loaded**]`)] });
         }
         else {
             const track = result.tracks[0];
             track.setRequester(message.author);
 
             player.queue.add(track);
-            searched.edit(`Queued \`${track.title}\``);
+            searched.edit({ embeds: [ctx.embed().setDescription(`Queued \`${track.title}\``)] });
         }
 
         if (!player.playing) player.play();
