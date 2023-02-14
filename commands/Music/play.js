@@ -13,9 +13,9 @@ export default {
         example: "maroon 5 memories|https://youtu.be/SlPhMPnQ58k"
     },
     execute: async(client, message, ctx) => {
+        const query = ctx.args.join(" ");
         let searchInfo = `🔎 Searching \`${query.length > 100 ? query.substr(0, 97)+"..." : query}\``;
 
-        const query = ctx.args.join(" ");
         const searched = await message.reply(searchInfo);
         const result = await client.vulkava.search(query).catch(console.error);
 
