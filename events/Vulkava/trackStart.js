@@ -1,5 +1,5 @@
-export default async (client, player, track) => {
-    await client.setupTrackStart(player);
+export default (client, player, track) => {
+    if (player.message) player.message.delete().catch(o_O => void 0);
 
     const channel = client.channels.cache.get(player.textChannelId);
 

@@ -103,10 +103,6 @@ export default class MusicBot extends Client {
 
         console.log("[Info] ✅ 'events' has loaded");
     }
-    async setupTrackStart(player = {}) {
-        if (player.message) await player.message.delete().catch(o_O => void 0);
-        player.message = null;
-    }
     async setup() {
         this.loadCommands();
         this.loadEvents();
