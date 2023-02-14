@@ -35,7 +35,7 @@ export default {
             }
 
             if (command.args.required) {
-                embed.addFields({ name: "Usage", value: `${command.args.usage.map(usage => `\`${usage}\``).join(" | ")}\n\nExample: ${command.args.example.map(ex => `\`${client.config.prefix}${command.name} ${ex}\``).join(" | ")}` });
+                embed.addFields({ name: "Usage", value: `${command.args.usage.split("|").map(usage => `\`${usage}\``).join(" | ")}\n\nExample: ${command.args.example.split("|").map(ex => `\`${client.config.prefix}${command.name} ${ex}\``).join(" | ")}` });
             }
 
             message.reply({ embeds: [embed] });

@@ -21,7 +21,7 @@ export default (client, message) => {
     if (!message.guild.members.me.permissions.has(PermissionFlagsBits.EmbedLinks)) return message.channel.send(`I need permissions \`EmbedLinks\` to execute my commands!`);
 
     if (command.args.required && !Context.args.length) {
-        return message.reply({ embeds: [embed.setTitle(`Please input a command arguments!`).addFields({ name: "Usage", value: `${command.args.usage.map(usage => `\`${usage}\``).join(" | ")}\n\nExample: ${command.args.example.split("|").map(ex => `\`${client.config.prefix}${command.name} ${ex}\``).join(" | ")}` })] });
+        return message.reply({ embeds: [embed.setTitle(`Please input a command arguments!`).addFields({ name: "Usage", value: `${command.args.usage.split("|").map(usage => `\`${usage}\``).join(" | ")}\n\nExample: ${command.args.example.split("|").map(ex => `\`${client.config.prefix}${command.name} ${ex}\``).join(" | ")}` })] });
     }
 
     Context.player = client.vulkava.players.get(message.guildId);
