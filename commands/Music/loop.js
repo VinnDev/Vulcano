@@ -24,12 +24,12 @@ export default {
             guildCustom.loopMessage = null;
         }
 
-        const singleLoop = () => {
+        const singleLoop = async() => {
             ctx.player.setTrackLoop(!state.single);
 
             guildCustom.loopMessage = message.reply({ embeds: [ctx.embed().setDescription(`Single loop is \`${state.single ? "off" : "on"}\` now`)] });
         };
-        const queueLoop = () => {
+        const queueLoop = async() => {
             ctx.player.setQueueLoop(!state.queue);
 
             guildCustom.loopMessage = await message.reply({ embeds: [ctx.embed().setDescription(`Queue loop is \`${state.queue ? "off" : "on"}\` now`)] });
