@@ -1,5 +1,7 @@
 export default (client, player, track) => {
+    client.setupTrackStart(player);
+
     const channel = client.channels.cache.get(player.textChannelId);
 
-    channel.send({ embeds: [{ color: parseInt(client.config.colors.replace("#", "0x")), description: `Start playing [${track.title}](${track.uri})` }] });
+    player.message = channel.send({ embeds: [client.embed({ description: `Start playing [${track.title}](${track.uri})` })] }).then(message => player.setupMessage(message));
 }

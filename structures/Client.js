@@ -1,4 +1,4 @@
-import { Client, Collection, GatewayIntentBits } from "discord.js";
+import { Client, Collection, EmbedBuilder, GatewayIntentBits } from "discord.js";
 import { Vulkava } from "vulkava";
 import { readdirSync } from "node:fs";
 
@@ -43,6 +43,17 @@ export default class MusicBot extends Client {
         this.on("warn", (info) => {
             console.warn(info);
         });
+
+        process.on('unhandledRejection', error => {
+            console.error('Unhandled Promise Rejection:', error);
+        });
+        process.on('uncaughtException', error => {
+            console.error('Uncaught Exception:', error);
+        });
+    }
+    embed(options = { color: parseInt(this.config.colors.replace("#", "0x")) }) {
+        if (!options.color) options.color = parseInt(this.config.colors.replace("#", "0x"));
+        return new EmbedBuilder(options);
     }
     loadCommands() {
         console.log("[Info] Start reload 'commands'")
@@ -91,6 +102,10 @@ export default class MusicBot extends Client {
         });
 
         console.log("[Info] ✅ 'events' has loaded");
+    }
+    async setupTrackStart(player = {}) {
+        if (player.message) await player.message.delete().catch(o_O => void 0);
+        player.message = null;
     }
     async setup() {
         this.loadCommands();
