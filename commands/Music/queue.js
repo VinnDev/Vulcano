@@ -1,6 +1,7 @@
 export default {
     name: "queue",
     description: "Show the songs queue",
+    aliases: ["q"],
     optional: {
         isPlaying: true
     },
@@ -22,7 +23,7 @@ export default {
             guildCustom.queueMessage = await message.reply({ embeds: [embed] });
         }
         else {
-            embed.setDescription(`${currentPlaying}\n\n${queue.tracks.slice(0, 10).map((track, i=1) => `[${i++}.] [${track.title}](${track.uri}) (${track.requester.toString()}`)})`);
+            embed.setDescription(`${currentPlaying}\n\n${queue.tracks.slice(0, 10).map((track, i=0) => `[${(i++)+1}.] [${track.title}](${track.uri}) (${track.requester.toString()}`)})`);
 
             guildCustom.queueMessage = await message.reply({ embeds: [embed] });
         }

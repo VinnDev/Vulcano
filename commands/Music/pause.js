@@ -10,7 +10,7 @@ export default {
         const guildCustom = ctx[message.guildId];
 
         if (ctx.player.paused) {
-            message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: "Current song is already paused" })] });
+            message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: "Current song is already paused." })] }).then(msg => setTimeout(() => msg.delete().catch(o_O => void 0), 5000));
         }
         else {
             ctx.player.pause();

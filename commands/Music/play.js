@@ -26,7 +26,7 @@ export default {
 
         if (result.loadType === "LOAD_FAILED") {
             searchInfo += " is **Failed!**";
-            return searched.edit({ content: searchInfo, embeds: [ctx.embed({ color: 0xff0000, description: `:x: Error! I can't loaded. cause: ${result.exception.message}` })] });
+            return searched.edit({ content: searchInfo, embeds: [ctx.embed({ color: 0xff0000, description: `:x: Error! I cannot loaded. cause: ${result.exception.message}` })] });
         }
         else if (result.loadType === "NO_MATCHES") {
             searchInfo += " is **Failed!**";

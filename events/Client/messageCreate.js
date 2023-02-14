@@ -1,5 +1,7 @@
 import { EmbedBuilder, PermissionFlagsBits } from "discord.js";
 
+const GuildCollection = {};
+
 export default (client, message) => {
     if (message.author.bot || !message.content.toLowerCase().startsWith(client.config.prefix.toLowerCase())) return;
 
@@ -43,11 +45,11 @@ export default (client, message) => {
 
     try {
         Context.embed = client.embed;
-        if (!Context[message.guildId]) Context[message.guildId] = {};
+        Context[message.guildId] = GuildCollection;
 
         command.execute(client, message, Context);
     }
     catch(error) {
-        message.reply({ embeds: [embed.setDescription(`❌ Error! I can't execute this commands. cause: \`${error.message}\``)] });
+        message.reply({ embeds: [embed.setDescription(`❌ I cannot execute this commands. cause: \`${error.message}\``)] });
     }
 }
