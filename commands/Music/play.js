@@ -1,6 +1,6 @@
 export default {
     name: "play",
-    description: "Playing a song",
+    description: "Start playing a song",
     aliases: ["p"],
     optional: {
         voicePermissions: true,

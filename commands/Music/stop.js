@@ -1,6 +1,6 @@
 export default {
     name: "stop",
-    description: "Forcibly stop the song and clear song queue",
+    description: "Forcibly stop current song and clear queue",
     optional: {
         isPlaying: true,
         inVoiceChannel: true,

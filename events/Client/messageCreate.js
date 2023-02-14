@@ -31,7 +31,6 @@ export default (client, message) => {
     }
     else {
         if (command.optional.isPlaying && !Context.player.playing) return message.reply({ embeds: [embed.setDescription("There is no track playing.")] });
-        if (command.optional.isPlaying && !Context.player.queue) return message.reply({ embeds: [embed.setDescription("There is no track playing.")] });
         if (command.optional.isPlaying && !Context.player.current) return message.reply({ embeds: [embed.setDescription("There is no track playing.")] });
     }
     if (command.optional.inVoiceChannel && !message.member.voice?.channel) return message.reply({ embeds: [embed.setDescription("You are not in a voice channel.")] });
@@ -44,6 +43,7 @@ export default (client, message) => {
 
     try {
         Context.embed = client.embed;
+        if (!Context[message.guildId]) Context[message.guildId] = {};
 
         command.execute(client, message, Context);
     }

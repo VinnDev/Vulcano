@@ -1,6 +1,6 @@
 export default {
     name: "skip",
-    description: "Skip the song current playing",
+    description: "Skip the current song playing",
     aliases: ["s"],
     optional: {
         isPlaying: true,
