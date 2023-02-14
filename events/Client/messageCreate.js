@@ -45,6 +45,7 @@ export default (client, message) => {
     try {
         Context.embed = (options = { color: client.config.colors.replace("#", "0x") }) => {
             if (!options.color) options.color = client.config.colors.replace("#", "0x");
+            else options.color = parseInt(options.color);
             return new EmbedBuilder(options);
         }
 
