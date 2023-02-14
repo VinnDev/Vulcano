@@ -5,6 +5,11 @@ export default {
     name: "help",
     description: "Show help commands information",
     aliases: ["h", "command", "cmd"],
+    args: {
+        required: false,
+        usage: "commands",
+        example: "help|play"
+    },
     execute: (client, message, ctx) => {
         const embed = new EmbedBuilder()
             .setColor(client.config.colors);
@@ -12,9 +17,8 @@ export default {
         if (!ctx.args.length) {
             const categories = readdirSync("./commands").filter(category => category !== "Developer");
 
-            embed.setTitle("Help Commands")
-                .setThumbnail(client.user.displayAvatarURL({ dynamic: true, size: 512 }))
-                .setDescription("Here is my commands list.");
+            embed.setAuthor({ name: "Commands List", iconURL: message.author.displayAvatarURL({ dynamic: true, size: 512 }) })
+                .setDescription("Here is all my commands list. Use \`${client.config.prefix}help [commands]\` for more info command spesific.");
 
             categories.forEach(category => {
                 embed.addFields({ name: category, value: client.commands.filter(command => command.category === category).map(cmd => `\`${cmd.name}\``).join(" ") });
@@ -27,14 +31,14 @@ export default {
 
             if (!command) return message.reply({ embeds: [embed.setDescription("I cannot find that commands!")] });
 
-            embed.setTitle(command.name)
+            embed.setTitle(`\`${command.name}\` commands`)
                 .setDescription(command.description)
 
             if (command.aliases.length) {
                 embed.addFields({ name: "Alias", value: command.aliases.map(alias => `\`${alias}\``).join(", ")})
             }
 
-            if (command.args.required) {
+            if (command.args.usage) {
                 embed.addFields({ name: "Usage", value: `${command.args.usage.split("|").map(usage => `\`${usage}\``).join(" | ")}\n\nExample: ${command.args.example.split("|").map(ex => `\`${client.config.prefix}${command.name} ${ex}\``).join(" | ")}` });
             }
 
