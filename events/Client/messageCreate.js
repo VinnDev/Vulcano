@@ -26,7 +26,7 @@ export default (client, message) => {
 
     Context.player = client.vulkava.players.get(message.guildId);
 
-    if (command.optional.isPlaying && !Context.player) return message.reply({ embeds: [embed.setDescription("There is no track playing.")] });
+    if (command.optional.isPlaying && !Context.player || !Context.player.playing) return message.reply({ embeds: [embed.setDescription("There is no track playing.")] });
     if (command.optional.inVoiceChannel && !message.member.voice?.channel) return message.reply({ embeds: [embed.setDescription("You are not in a voice channel.")] });
     else if (command.optional.voicePermissions && !message.member.voice.channel.permissionsFor(message.guild.members.me).has(PermissionFlagsBits.Connect)) return message.reply({ embeds: [embed.setDescription(`I need permissions \`Connect\` in **${message.member.voice.channel.name}**`)] });
     else if (command.optional.voicePermissions && !message.member.voice.channel.permissionsFor(message.guild.members.me).has(PermissionFlagsBits.Speak)) return message.reply({ embeds: [embed.setDescription(`I need permissions \`Speak\` in **${message.member.voice.channel.name}**`)] });
