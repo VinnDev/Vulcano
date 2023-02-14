@@ -1,10 +1,13 @@
-![Vulcano](https://media.discordapp.net/attachments/812381804405194852/1074763314044870656/Vulcano-Text.png )
+![Vulcano](https://media.discordapp.net/attachments/812381804405194852/1074994339811442778/vulcano-banner.png)
 
 ![Version](https://img.shields.io/github/package-json/v/VinnOfficial/Vulcano?style=for-the-badge)
 ![License](https://img.shields.io/github/license/VinnOfficial/Vulcano.svg?style=for-the-badge)
 
 # Vulcano
-A discord bot based on vulkava and discord.js v14
+A discord bot based on [vulkava](https://vulkava.js.org) and [discord.js v14](https://discord.js.org/)
+
+**Wanna try a sample bot that uses this repository?**
+<button name="button" onclick="https://discord.com/api/oauth2/authorize?client_id=725006929667162222&permissions=8&scope=bot%20applications.commands">Add to Server</button>
 
 ## 📄 Feature
 - [x] Music system (play, loop, skip, stop, and more...)
