@@ -2,6 +2,7 @@ export default {
     name: "join",
     description: "Joinned your voice channel",
     optional: {
+        voicePermissions: true,
         inActive: true,
         inVoiceChannel: true
     },

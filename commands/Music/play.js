@@ -3,10 +3,15 @@ export default {
     description: "Playing a song",
     aliases: ["p"],
     optional: {
+        voicePermissions: true,
         inVoiceChannel: true,
         sameVoiceChannel: true
     },
-    usage: "song title|song link",
+    args: {
+        required: true,
+        usage: "song title|song link",
+        example: "maroon 5 memories|https://youtu.be/SlPhMPnQ58k"
+    },
     execute: async(client, message, ctx) => {
         const query = ctx.args.join(" ");
         const searched = await message.reply(`🔎 Searching \`${query.length > 100 ? query.substr(0, 97)+"..." : query}\``);

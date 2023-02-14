@@ -4,7 +4,7 @@ export default (client) => {
     client.vulkava.start(client.user.id);
 
     client.user.setActivity({
-        name: `${client.config.prefix}help | Made by Vinn#6779`,
+        name: `${client.config.prefix}play | Made by Vinn#6779`,
         type: ActivityType.Listening
     });
 

@@ -57,6 +57,7 @@ export default class MusicBot extends Client {
                     description: commands.description,
                     aliases: commands.aliases || [],
                     optional: commands.optional || {},
+                    args: commands.args || {},
                     usage: commands.usage || null,
                     execute: commands.execute
                 };
