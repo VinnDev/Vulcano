@@ -23,7 +23,7 @@ export default {
             message.reply({ embeds: [embed] });
         }
         else {
-            const command = client.commands.get(ctx.args[0]) || client.commands.find(command => command.aliases.includes(ctx.args[0]));
+            const command = client.commands.get(ctx.args[0]) || client.commands.find(command => command.aliases.length && command.aliases.includes(ctx.args[0]));
 
             if (!query) return message.reply({ embeds: [embed.setDescription("I cannot find that commands!")] });
 
