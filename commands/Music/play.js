@@ -55,7 +55,7 @@ export default {
             track.setRequester(message.author);
 
             player.queue.add(track);
-            searched.edit({ embeds: [ctx.embed().setDescription(`Queued \`${track.title}\``)] });
+            searched.edit({ content: "", embeds: [ctx.embed().setDescription(`Queued \`${track.title}\``)] });
         }
 
         if (!player.playing) player.play();
