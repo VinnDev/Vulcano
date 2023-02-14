@@ -18,7 +18,7 @@ export default {
             const categories = readdirSync("./commands").filter(category => category !== "Developer");
 
             embed.setAuthor({ name: "Commands List", iconURL: message.author.displayAvatarURL({ dynamic: true, size: 512 }) })
-                .setDescription("Here is all my commands list. Use \`${client.config.prefix}help [commands]\` for more info command spesific.");
+                .setDescription(`Here is all my commands list. Use \`${client.config.prefix}help [commands]\` for more info command spesific.`);
 
             categories.forEach(category => {
                 embed.addFields({ name: category, value: client.commands.filter(command => command.category === category).map(cmd => `\`${cmd.name}\``).join(" ") });
@@ -31,7 +31,7 @@ export default {
 
             if (!command) return message.reply({ embeds: [embed.setDescription("I cannot find that commands!")] });
 
-            embed.setTitle(`\`${command.name}\` commands`)
+            embed.setTitle(`"${command.name}" commands`)
                 .setDescription(command.description)
 
             if (command.aliases.length) {
