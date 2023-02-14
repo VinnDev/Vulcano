@@ -51,7 +51,7 @@ export default class MusicBot extends Client {
             console.error('Uncaught Exception:', error);
         });
     }
-    embed(options = { color: parseInt(this.config.colors.replace("#", "0x")) }) {
+    embed(options = {}) {
         if (!options.color) options.color = parseInt(this.config.colors.replace("#", "0x"));
         return new EmbedBuilder(options);
     }
