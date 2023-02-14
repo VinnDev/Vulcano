@@ -28,8 +28,8 @@ export default (client, message) => {
 
     if (command.optional.isPlaying && !Context.player.playing) return message.reply({ embeds: [embed.setDescription("There is no track playing.")] });
     if (command.optional.inVoiceChannel && !message.member.voice?.channel) return message.reply({ embeds: [embed.setDescription("You are not in a voice channel.")] });
-    else if (command.optional.voicePermissions && message.member.voice.channel.permissionsFor(message.guild.members.me, true).has(PermissionFlagsBits.Connect)) return message.reply({ embeds: [embed.setDescription(`I need permissions \`Connect\` in **${message.member.voice.channel.name}**`)] });
-    else if (command.optional.voicePermissions && message.member.voice.channel.permissionsFor(message.guild.members.me, true).has(PermissionFlagsBits.Speak)) return message.reply({ embeds: [embed.setDescription(`I need permissions \`Speak\` in **${message.member.voice.channel.name}**`)] });
+    else if (command.optional.voicePermissions && !message.member.voice.channel.permissionsFor(message.guild.members.me).has(PermissionFlagsBits.Connect)) return message.reply({ embeds: [embed.setDescription(`I need permissions \`Connect\` in **${message.member.voice.channel.name}**`)] });
+    else if (command.optional.voicePermissions && !message.member.voice.channel.permissionsFor(message.guild.members.me).has(PermissionFlagsBits.Speak)) return message.reply({ embeds: [embed.setDescription(`I need permissions \`Speak\` in **${message.member.voice.channel.name}**`)] });
     if (command.optional.inActive && message.guild.members.me.voice?.channel && Context.player) {
         if (message.guild.members.me.voice?.channel.members.size > 1 && Context.player.playing && Context.player.current.requester.id !== message.author.id) return message.reply({ embeds: [embed.setDescription("I have been active in the voice channel.")] });
     }
