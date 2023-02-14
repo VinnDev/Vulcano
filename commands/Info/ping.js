@@ -1,7 +1,7 @@
 export default {
     name: "ping",
     description: "Check the bot latency",
-    execute: (client, message) => {
+    execute: (client, message, ctx) => {
         message.reply("Pinging...").then(msg => {
             const latency = msg.createdTimestamp - message.createdTimestamp;
 
