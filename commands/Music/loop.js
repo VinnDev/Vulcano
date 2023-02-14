@@ -20,14 +20,14 @@ export default {
         };
 
         if (guildCustom.loopMessage) {
-            guildCustom.loopMessage.deletee().catch(o_O => void 0);
+            guildCustom.loopMessage.delete().catch(o_O => void 0);
             guildCustom.loopMessage = null;
         }
 
         const singleLoop = async() => {
             ctx.player.setTrackLoop(!state.single);
 
-            guildCustom.loopMessage = message.reply({ embeds: [ctx.embed().setDescription(`Single loop is \`${state.single ? "off" : "on"}\` now`)] });
+            guildCustom.loopMessage = await message.reply({ embeds: [ctx.embed().setDescription(`Single loop is \`${state.single ? "off" : "on"}\` now`)] });
         };
         const queueLoop = async() => {
             ctx.player.setQueueLoop(!state.queue);

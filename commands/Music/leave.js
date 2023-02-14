@@ -6,7 +6,7 @@ export default {
         inActive: true
     },
     execute: (client, message, ctx) => {
-        if (!message.guild.members.me.voice?.channel) return message.reply({ embeds: [ctx.embed().setDescription(`Currently not active in voice channel.`)] });
+        if (!message.guild.members.me.voice?.channel) return message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: "Currently is not active in voice channel." })] });
 
         ctx.player.destroy();
 
