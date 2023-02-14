@@ -1,6 +1,6 @@
 {
   "name": "vulcano",
-  "version": "1.0.1-b",
+  "version": "1.1.0-b",
   "description": "A discord bot based on vulkava and discord.js v14",
   "main": "index.js",
   "type": "module",
