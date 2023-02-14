@@ -52,7 +52,7 @@ export default class MusicBot extends Client {
         });
     }
     embed(options = {}) {
-        if (!options.color) options.color = parseInt(this.config.colors.replace("#", "0x"));
+        if (!options.color) options.color = parseInt(config.colors.replace("#", "0x"));
         return new EmbedBuilder(options);
     }
     loadCommands() {
