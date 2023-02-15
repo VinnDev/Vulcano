@@ -6,6 +6,7 @@
   "type": "module",
   "depedencies": {
       "discord.js": "^14.7.1",
+      "node-fetch": "^3.3.0",
       "vulkava": "^1.6.0"
   },
   "scripts": {
