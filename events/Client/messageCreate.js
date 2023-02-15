@@ -40,7 +40,7 @@ export default (client, message) => {
     if (command.optional.sameVoiceChannel && message.guild.members.me.voice?.channel && message.member.voice.channelId !== message.guild.members.me.voice.channelId) return message.reply({ embeds: [embed.setDescription("You are not in a same voice channel with me.")] });
 
     if (command.args.required && !Context.args.length) {
-        return message.reply({ embeds: [embed.setTitle(`Please input a command arguments!`).addFields({ name: "Usage", value: `${command.args.usage.split("|").map(usage => `\`${usage}\``).join(" | ")}\n\nExample: ${command.args.example.split("|").map(ex => `\`${client.config.prefix}${command.name} ${ex}\``).join(" | ")}` })] });
+        return message.reply({ embeds: [embed.setDescription("Please input a command arguments!").addFields({ name: "Usage", value: `${command.args.usage.split("|").map(usage => `\`${usage}\``).join(" | ")}\n\nExample: ${command.args.example.split("|").map(ex => `\`${client.config.prefix}${command.name} ${ex}\``).join(" | ")}` })] });
     }
 
     try {
