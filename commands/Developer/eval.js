@@ -1,7 +1,7 @@
 import Discord from "discord.js";
-
-import fetch from "node-fetch";
 import util from "util";
+
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 export default {
     name: "eval",
