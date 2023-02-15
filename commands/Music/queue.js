@@ -23,7 +23,7 @@ export default {
             guildCustom.queueMessage = await message.reply({ embeds: [embed] });
         }
         else {
-            embed.setDescription(`${currentPlaying}\n\n${queue.tracks.slice(0, 10).map((track, i=0) => `[${(i++)+1}.] [${track.title}](${track.uri}) (${track.requester.toString()}`)})`);
+            embed.setDescription(`${currentPlaying}\n\n${queue.tracks.slice(0, 10).map((track, i=0) => `[${(i++)+1}.] [${track.title}](${track.uri}) (${track.requester.toString()}`).join("\n")})`);
 
             guildCustom.queueMessage = await message.reply({ embeds: [embed] });
         }

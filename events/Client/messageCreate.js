@@ -22,10 +22,6 @@ export default (client, message) => {
     if (!message.guild.members.me.permissions.has(PermissionFlagsBits.SendMessages)) return message.author.send({ embeds: [embed.setDescription(`I don't have permissions \`SendMessages\` at channel ${message.channel.toString()} in server **${message.guild.name}**`)] }).catch(o_O => void 0);
     if (!message.guild.members.me.permissions.has(PermissionFlagsBits.EmbedLinks)) return message.channel.send(`I need permissions \`EmbedLinks\` to execute my commands!`);
 
-    if (command.args.required && !Context.args.length) {
-        return message.reply({ embeds: [embed.setTitle(`Please input a command arguments!`).addFields({ name: "Usage", value: `${command.args.usage.split("|").map(usage => `\`${usage}\``).join(" | ")}\n\nExample: ${command.args.example.split("|").map(ex => `\`${client.config.prefix}${command.name} ${ex}\``).join(" | ")}` })] });
-    }
-
     Context.player = client.vulkava.players.get(message.guildId);
 
     if (command.optional.isPlaying && !Context.player) {
@@ -42,6 +38,10 @@ export default (client, message) => {
         if (message.guild.members.me.voice?.channel.members.size > 1 && Context.player.playing && Context.player.current.requester.id !== message.author.id) return message.reply({ embeds: [embed.setDescription("I have been active in the voice channel.")] });
     }
     if (command.optional.sameVoiceChannel && message.guild.members.me.voice?.channel && message.member.voice.channelId !== message.guild.members.me.voice.channelId) return message.reply({ embeds: [embed.setDescription("You are not in a same voice channel with me.")] });
+
+    if (command.args.required && !Context.args.length) {
+        return message.reply({ embeds: [embed.setTitle(`Please input a command arguments!`).addFields({ name: "Usage", value: `${command.args.usage.split("|").map(usage => `\`${usage}\``).join(" | ")}\n\nExample: ${command.args.example.split("|").map(ex => `\`${client.config.prefix}${command.name} ${ex}\``).join(" | ")}` })] });
+    }
 
     try {
         Context.embed = client.embed;

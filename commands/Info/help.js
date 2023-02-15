@@ -29,7 +29,7 @@ export default {
 
             if (!command) return message.reply({ embeds: [embed.setDescription("I cannot find that commands!")] });
 
-            embed.setTitle(`"${command.name}" commands`)
+            embed.setTitle(`[${command.name}] commands`)
                 .setDescription(command.description)
 
             if (command.aliases.length) {

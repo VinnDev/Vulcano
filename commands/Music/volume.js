@@ -5,7 +5,7 @@ export default {
     args: {
         required: true,
         usage: "number",
-        exampe: "50"
+        example: "50"
     },
     optional: {
         isPlaying: true,

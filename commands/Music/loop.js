@@ -25,14 +25,16 @@ export default {
         }
 
         const singleLoop = async() => {
+            if (state.queue) ctx.player.setQueueLoop(false);
             ctx.player.setTrackLoop(!state.single);
 
-            guildCustom.loopMessage = await message.reply({ embeds: [ctx.embed().setDescription(`Single loop is \`${state.single ? "off" : "on"}\` now`)] });
+            guildCustom.loopMessage = await message.reply({ embeds: [ctx.embed().setDescription(`Single loop is \`${state.single ? "NOT ACTIVE" : "ACTIVE"}\` now`)] });
         };
         const queueLoop = async() => {
+            if (state.single) ctx.player.setTrackLoop(false);
             ctx.player.setQueueLoop(!state.queue);
 
-            guildCustom.loopMessage = await message.reply({ embeds: [ctx.embed().setDescription(`Queue loop is \`${state.queue ? "off" : "on"}\` now`)] });
+            guildCustom.loopMessage = await message.reply({ embeds: [ctx.embed().setDescription(`Queue loop is \`${state.queue ? "NOT ACTIVE" : "ACTIVE"}\` now`)] });
         };
 
         if (!ctx.args.length) return singleLoop(); // Default is single looping
