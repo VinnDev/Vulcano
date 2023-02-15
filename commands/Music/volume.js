@@ -19,7 +19,11 @@ export default {
 
         if (value < 1 || value > 100) return message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: "Input volume value must a number between 1 - 100!"})] });
 
-        ctx.player.filters.setVolume(value);
+        ctx.player.node.send({
+            op: "volume",
+            guildId: ctx.player.guildId,
+            volume: value
+        });
 
         message.reply({ embeds: [ctx.embed().setDescription(`Volume is set to \`${value}%\``)] });
     }
