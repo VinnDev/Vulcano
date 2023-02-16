@@ -7,7 +7,7 @@ export default {
     args: {
         required: true,
         usage: "shell_command",
-        exampe: "npm ls|node -version"
+        example: "npm ls|node -version"
     },
     execute: async(client, message, ctx) => {
         message.channel.sendTyping();
