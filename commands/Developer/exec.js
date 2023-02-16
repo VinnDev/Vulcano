@@ -11,13 +11,14 @@ export default {
     },
     execute: (client, message, ctx) => {
         message.channel.sendTyping();
-        const executed = execSync(ctx.args.join(" "));
 
-        if (!executed) {
-            message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: `I cannot executed a shell command of \`${ctx.args.join(" ")}\`` })] });
-        }
-        else {
+        try {
+            const executed = execSync(ctx.args.join(" "));
+
             message.reply({ embeds: [ctx.embed({ color: 0x00ff00, title: `$ ${ctx.args.join(" ")}`, description: `\`\`\`shell\n${executed}\`\`\`` })] });
+        }
+        catch(error) {
+            message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: `I cannot executed $ \`${ctx.args.join(" ")}\` command. cause: ${error.message}` })] });
         }
     }
 }
