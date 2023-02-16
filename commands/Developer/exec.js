@@ -9,9 +9,9 @@ export default {
         usage: "shell_command",
         example: "npm ls|node -version"
     },
-    execute: async(client, message, ctx) => {
+    execute: (client, message, ctx) => {
         message.channel.sendTyping();
-        const executed = await execSync(ctx.args.join(" ")).catch(o_O => void 0);
+        const executed = execSync(ctx.args.join(" "));
 
         if (!executed) {
             message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: `I cannot executed a shell command of \`${ctx.args.join(" ")}\`` })] });
