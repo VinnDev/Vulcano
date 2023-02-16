@@ -1,5 +1,7 @@
 import Discord from "discord.js";
-import util from "util";
+
+import { inspect } from "util";
+import { request } from "undici";
 
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
@@ -36,6 +38,6 @@ function clean(values) {
             .replace(/@/g, "@" + String.fromCharCode(8203));
     }
     else {
-        return util.inspect(values, { depth: 0 });
+        return inspect(values, { depth: 0 });
     }
 };
