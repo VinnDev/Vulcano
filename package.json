@@ -1,11 +1,12 @@
 {
   "name": "vulcano",
-  "version": "1.1.1-b",
+  "version": "1.1.2-b",
   "description": "A discord bot based on vulkava and discord.js v14",
   "main": "index.js",
   "type": "module",
   "depedencies": {
       "discord.js": "^14.7.1",
+      "lyrics-api.js": "^1.0.0",
       "vulkava": "^1.6.0",
       "undici": "^5.19.1"
   },

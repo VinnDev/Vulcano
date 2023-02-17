@@ -3,8 +3,6 @@ import Discord from "discord.js";
 import { inspect } from "util";
 import { request } from "undici";
 
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-
 export default {
     name: "eval",
     description: "Evaluate code for developer testing",
