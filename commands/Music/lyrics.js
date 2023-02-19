@@ -13,9 +13,13 @@ export default {
         let query = ctx.args.join(" ");
 
         try {
-            if (!ctx.args.length || !ctx.player || !ctx.player.playing) return message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: `What lyrics are you looking for?` })] })
-            if (ctx.player) {
-                if (ctx.player.playing) query = ctx.player.current.title
+            if (!ctx.args.length && !ctx.player) return message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: `What lyrics are you looking for?` })] });
+
+            if (!ctx.args.length) {
+                if (ctx.player.playing) query = ctx.player.current.title;
+                else {
+                    return message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: `What lyrics are you looking for?` })] });
+                }
             };
 
             const lyrics = await Lyrics.search(query);
