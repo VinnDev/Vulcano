@@ -8,6 +8,7 @@ export default {
         usage: "query",
         example: "maroon 5 sugar"
     },
+    aliases: ["ly"],
     execute: (client, message, ctx) => {
         let query = ctx.args.join(" ");
 
