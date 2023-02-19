@@ -1,4 +1,4 @@
-const Lyrics = require("lyrics-api.js");
+import Lyrics from "lyrics-api.js";
 
 export default {
     name: "lyrics",
