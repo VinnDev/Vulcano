@@ -6,7 +6,7 @@
   "type": "module",
   "depedencies": {
       "discord.js": "^14.7.1",
-      "lyrics-api.js": "^1.0.0",
+      "lyrics-api.js": "^1.1.0",
       "vulkava": "^1.6.0",
       "undici": "^5.19.1"
   },
