@@ -13,7 +13,7 @@ export default {
         let query = ctx.args.join(" ");
 
         try {
-            if (!query.length || !ctx.player || !ctx.player.playing) return message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: `What lyrics are you looking for?` })] })
+            if (!ctx.args.length || !ctx.player || !ctx.player.playing) return message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: `What lyrics are you looking for?` })] })
             if (ctx.player) {
                 if (ctx.player.playing) query = ctx.player.current.title
             };
