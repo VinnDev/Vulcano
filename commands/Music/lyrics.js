@@ -9,7 +9,7 @@ export default {
         example: "maroon 5 sugar"
     },
     aliases: ["ly"],
-    execute: (client, message, ctx) => {
+    execute: async(client, message, ctx) => {
         let query = ctx.args.join(" ");
 
         try {
