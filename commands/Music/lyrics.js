@@ -1,4 +1,4 @@
-import { searchLyrics } from "../../functions/searchLyrics.js";
+import searchLyrics from "../../functions/searchLyrics.js";
 
 export default {
     name: "lyrics",
