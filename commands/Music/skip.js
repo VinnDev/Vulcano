@@ -23,7 +23,7 @@ export default {
             const song = ctx.player.current;
             ctx.player.skip();
 
-            guildCustom.skipMessage = await message.reply({ embeds: [ctx.embed().setDescription(`Skipped \`${song.title}]\``)] });
+            guildCustom.skipMessage = await message.reply({ embeds: [ctx.embed().setDescription(`Skipped \`${song.title}\``)] });
         }
     }
 }
