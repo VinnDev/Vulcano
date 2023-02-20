@@ -1,4 +1,4 @@
-import Lyrics from "lyrics-api.js";
+import { searchLyrics } from "../../functions/searchLyrics.js";
 
 export default {
     name: "lyrics",
@@ -12,27 +12,30 @@ export default {
     execute: async(client, message, ctx) => {
         let query = ctx.args.join(" ");
 
+        if (!ctx.args.length && !ctx.player) return message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: `What lyrics are you looking for?` })] });
+
+        if (!ctx.args.length) {
+            if (ctx.player.playing) query = ctx.player.current.title;
+            else {
+                return message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: `What lyrics are you looking for?` })] });
+            }
+        };
+
         try {
-            if (!ctx.args.length && !ctx.player) return message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: `What lyrics are you looking for?` })] });
+            let data = null;
+            let lyrics = await searchLyrics(query);
 
-            if (!ctx.args.length) {
-                if (ctx.player.playing) query = ctx.player.current.title;
-                else {
-                    return message.reply({ embeds: [ctx.embed({ color: 0xff0000, description: `What lyrics are you looking for?` })] });
-                }
+            if (!lyrics || !lyrics.data) {
+                return message.reply({ embeds: [ctx.embed({ color: 0xff0000, description:`I cannot find lyrics for \`${query}\`` })] });
             };
-
-            const lyrics = await Lyrics.search(query);
-            if (!lyrics || !lyrics.data) return message.reply({ embeds: [ctx.embed({ color: 0xff0000, description:`I cannot find lyrics for \`${query}\`` })] });
-
-            const result = lyrics.data;
+            data = lyrics.data;
 
             const embed = ctx.embed()
-                .setTitle(result.title)
-                .setAuthor({ name: result.artists.map(artist => artist.name).join(", ") })
-                .setThumbnail(result.thumbnail)
-                .setDescription(result.lyrics.length > 4096 ? `${result.lyrics.substr(0, 4093)}...`: result.lyrics)
-                .setFooter({ text: `Lyrics provided by ${lyrics.provider}` });
+                .setTitle(data.title)
+                .setAuthor({ name: data.artists.map(artist => artist.name).join(", ") })
+                .setThumbnail(data.thumbnail)
+                .setDescription(data.lyrics.length > 4096 ? `${data.lyrics.substr(0, 4093)}...`: data.lyrics)
+                .setFooter({ text: `Source: ${data.source} | Provided by ${lyrics.provider}` });
 
             message.reply({ embeds: [embed] });
         } catch(error) {
