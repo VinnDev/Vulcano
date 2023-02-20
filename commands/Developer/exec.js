@@ -9,8 +9,8 @@ export default {
         usage: "shell_command",
         example: "npm ls|node -version"
     },
-    execute: (client, message, ctx) => {
-        message.channel.sendTyping();
+    execute: async(client, message, ctx) => {
+        await message.channel.sendTyping();
 
         try {
             const executed = execSync(ctx.args.join(" "));

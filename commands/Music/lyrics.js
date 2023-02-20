@@ -21,6 +21,8 @@ export default {
             }
         };
 
+        await message.channel.sendTyping();
+
         try {
             let data = null;
             let lyrics = await searchLyrics(query);
@@ -35,7 +37,7 @@ export default {
                 .setAuthor({ name: data.artists.map(artist => artist.name).join(", ") })
                 .setThumbnail(data.thumbnail)
                 .setDescription(data.lyrics.length > 4096 ? `${data.lyrics.substr(0, 4093)}...`: data.lyrics)
-                .setFooter({ text: `Source: ${data.source} | Provided by ${lyrics.provider.name}` });
+                .setFooter({ text: `Source: ${data.source} | Powered by ${lyrics.provider.name}` });
 
             message.reply({ embeds: [embed] });
         } catch(error) {
