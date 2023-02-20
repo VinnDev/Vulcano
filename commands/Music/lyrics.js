@@ -35,7 +35,7 @@ export default {
                 .setAuthor({ name: data.artists.map(artist => artist.name).join(", ") })
                 .setThumbnail(data.thumbnail)
                 .setDescription(data.lyrics.length > 4096 ? `${data.lyrics.substr(0, 4093)}...`: data.lyrics)
-                .setFooter({ text: `Source: ${data.source} | Provided by ${lyrics.provider}` });
+                .setFooter({ text: `Source: ${data.source} | Provided by ${lyrics.provider.name}` });
 
             message.reply({ embeds: [embed] });
         } catch(error) {
