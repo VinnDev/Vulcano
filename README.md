@@ -4,12 +4,14 @@
 ![License](https://img.shields.io/github/license/VinnOfficial/Vulcano.svg?style=for-the-badge)
 
 ## 📄 Feature
-- [x] Music system (play, loop, skip, stop, and more...)
+- [x] Music system (play, queue, nowplaying, loop, skip, stop, and more...)
 - [x] Prefix commands (message content)
 - [x] Easy to use
 
+**NOTE: If you have a idea, suggestions or requests about new features, feel free to discuss.** [Visit Here](https://github.com/VinnOfficial/Vulcano/discussions/categories/ideas)
+
 <details>
-<summary>🖼️ See an example command.</summary>
+<summary><strong>🖼️ See an Example Command Usage</strong></summary>
 <img src="https://media.discordapp.net/attachments/812381804405194852/1077644342354780220/image0.jpg">
 <br>
 <img src="https://media.discordapp.net/attachments/812381804405194852/1077643424825622669/image1.jpg">
@@ -28,7 +30,7 @@
 - [x] Https (Radio)
 
 <details>
-<summary>📄 Check Requirements!</summary>
+<summary><strong>⚠️ Check Requirements!</strong></summary>
 <p>
 
 ## ✅ Requirements
