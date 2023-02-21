@@ -1,6 +1,6 @@
 {
   "name": "vulcano",
-  "version": "1.1.2-b",
+  "version": "1.0.0",
   "description": "A discord bot based on vulkava and discord.js v14",
   "main": "index.js",
   "type": "module",
@@ -13,6 +13,13 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "discord",
+    "discord-bot",
+    "discord-music",
+    "discord-js",
+    "vulkava"
+  ],
   "author": "Vinn#6779",
   "repository": {
     "type": "git",
