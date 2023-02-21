@@ -5,13 +5,13 @@
   "main": "index.js",
   "type": "module",
   "depedencies": {
-      "discord.js": "^14.7.1",
-      "vulkava": "^1.6.0",
-      "undici": "^5.20.0"
+    "discord.js": "^14.7.1",
+    "vulkava": "^1.6.0",
+    "undici": "^5.20.0"
   },
   "scripts": {
-      "start": "node index.js",
-      "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vinn#6779",
   "repository": {
