@@ -11,7 +11,7 @@
 **NOTE: If you have a idea, suggestions or requests about added new features, feel free to discuss.** [Visit Here](https://github.com/VinnOfficial/Vulcano/discussions/categories/ideas)
 
 <details>
-<summary><strong>🖼️ See an Example Command Usage</strong></summary>
+<summary><strong>🖼️ [CLiCK ME] See an Example Command Usage</strong></summary>
 <img src="https://media.discordapp.net/attachments/812381804405194852/1077644342354780220/image0.jpg">
 <br>
 <img src="https://media.discordapp.net/attachments/812381804405194852/1077643424825622669/image1.jpg">
@@ -30,7 +30,7 @@
 - [x] Https (Radio)
 
 <details>
-<summary><strong>⚠️ Check Requirements!</strong></summary>
+<summary><strong>⚠️ [CLICK ME] Check Requirements!</strong></summary>
 <p>
 
 ## ✅ Requirements
