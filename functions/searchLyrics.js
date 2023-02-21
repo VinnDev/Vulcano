@@ -2,9 +2,7 @@ import { request } from "undici";
 
 const apiURL = "https://api.vinndev.me/lyrics";
 
-export default searchLyrics;
-
-async function searchLyrics(query) {
+export async function searchLyrics(query) {
     if (!String(query)) throw "at here! query as string for search the lyrics can not be empty.";
 
     query = String(query).split(" ").join("+");

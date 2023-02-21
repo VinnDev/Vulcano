@@ -1,4 +1,4 @@
-import searchLyrics from "../../functions/searchLyrics.js";
+import { searchLyrics as search } from "../../functions/searchLyrics.js";
 
 export default {
     name: "lyrics",
@@ -25,7 +25,7 @@ export default {
 
         try {
             let data = null;
-            let lyrics = await searchLyrics(query);
+            let lyrics = await search(query);
 
             if (!lyrics || !lyrics.data) {
                 return message.reply({ embeds: [ctx.embed({ color: 0xff0000, description:`I cannot find lyrics for \`${query}\`` })] });
