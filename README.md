@@ -8,7 +8,7 @@
 - [x] Prefix commands (message content)
 - [x] Easy to use
 
-**NOTE: If you have a idea, suggestions or requests about new features, feel free to discuss.** [Visit Here](https://github.com/VinnOfficial/Vulcano/discussions/categories/ideas)
+**NOTE: If you have a idea, suggestions or requests about added new features, feel free to discuss.** [Visit Here](https://github.com/VinnOfficial/Vulcano/discussions/categories/ideas)
 
 <details>
 <summary><strong>🖼️ See an Example Command Usage</strong></summary>
