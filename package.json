@@ -6,12 +6,11 @@
   "type": "module",
   "depedencies": {
     "discord.js": "^14.7.1",
-    "vulkava": "^1.6.0",
-    "undici": "^5.20.0"
+    "undici": "^5.20.0",
+    "vulkava": "^1.6.0"
   },
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [
     "discord",
@@ -20,13 +19,13 @@
     "discord-js",
     "vulkava"
   ],
-  "author": "Vinn#6779",
+  "author": "VinnDev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VinnOfficial/Vulcano.git"
+    "url": "git+https://github.com/VinnDev/Vulcano.git"
   },
   "bugs": {
-    "url": "https://github.com/VinnOfficial/Vulcano/issues"
+    "url": "https://github.com/VinnDev/Vulcano/issues"
   },
-  "homepage": "https://github.com/VinnOfficial/Vulcano#readme"
+  "homepage": "https://github.com/VinnDev/Vulcano#readme"
 }

@@ -14,7 +14,6 @@ export default class MusicBot extends Client {
             },
             intents: [
                 GatewayIntentBits.Guilds,
-                GatewayIntentBits.GuildMembers,
                 GatewayIntentBits.GuildMessages,
                 GatewayIntentBits.GuildVoiceStates,
                 GatewayIntentBits.MessageContent,
@@ -50,6 +49,9 @@ export default class MusicBot extends Client {
         process.on('uncaughtException', error => {
             console.error('Uncaught Exception:', error);
         });
+
+        this.loadCommands();
+        this.loadEvents();
     }
     embed(options = {}) {
         if (!options.color) options.color = parseInt(config.colors.replace("#", "0x"));
@@ -104,9 +106,6 @@ export default class MusicBot extends Client {
         console.log("[Info] ✅ 'events' has loaded");
     }
     async setup() {
-        this.loadCommands();
-        this.loadEvents();
-
         super.login(process.env.TOKEN);
     }
 }

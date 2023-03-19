@@ -24,6 +24,8 @@ export default (client, message) => {
 
     Context.player = client.vulkava.players.get(message.guildId);
 
+    if (command.category === "Developer" && message.author.id !== client.config.developerId) return;
+
     if (command.optional.isPlaying && !Context.player) {
         return message.reply({ embeds: [embed.setDescription("There is no track playing.")] });
     }
