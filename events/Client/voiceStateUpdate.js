@@ -1,5 +1,5 @@
 export default async(client, oldState, newState) => {
-    const player = client.vulkava.players.get(newState.guildId);
+    const player = client.vulkava.players.get(newState.guild.id);
 
     if (!player || player.state !== 1 || !player.playing) return;
 
