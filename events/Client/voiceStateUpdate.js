@@ -33,7 +33,8 @@ export default async(client, oldState, newState) => {
                 player.pause(false);
                 player.voiceStatePausedMessage.delete().catch(o_O => void 0);
 
-                embed.setTitle("Queue Resume")
+                embed.setColor("LightGrey")
+                    .setTitle("Queue Resume")
                     .setDescription("Resuming playback because all of you left me with music to play all alone.");
 
                 const message = await playerChannel.send({ embeds: [embed] });
@@ -45,7 +46,8 @@ export default async(client, oldState, newState) => {
             if (VoiceState.members.size === 0 && !player.paused && player.playing) {
                 player.pause(true);
 
-                embed.setTitle("Queue Paused")
+                embed.setColor("DarkGrey")
+                    .setTitle("Queue Paused")
                     .setDescription("The player has been paused because everybody left.");
 
                 const message = await playerChannel.send({ embeds: [embed] });
