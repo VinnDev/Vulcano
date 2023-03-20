@@ -16,14 +16,14 @@ export default async(client, oldState, newState) => {
     if (newState.serverMute == false && oldState.serverMute == true) return player.pause(false);
 
     if (VoiceState.type === "Move") {
-        if (oldState.channel.id === player.voiceChannel) VoiceState.type = "Leave";
-        if (newState.channel.id === player.voiceChannel) VoiceState.type = "Join";
+        if (oldState.channel.id === player.voiceChannelId) VoiceState.type = "Leave";
+        if (newState.channel.id === player.voiceChannelId) VoiceState.type = "Join";
     }
 
     if (VoiceState.type === "Join") VoiceState.channel = newState.channel;
     if (VoiceState.type === "Leave") VoiceState.channel = oldState.channel;
 
-    if (!VoiceState.channel || VoiceState.channel.id !== player.voiceChannel) return;
+    if (!VoiceState.channel || VoiceState.channel.id !== player.voiceChannelId) return;
 
     VoiceState.members = VoiceState.channel.members.filter((member) => !member.user.bot);
 
