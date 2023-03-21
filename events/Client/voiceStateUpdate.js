@@ -34,7 +34,7 @@ export default async(client, oldState, newState) => {
                 player.voiceStatePausedMessage.delete().catch(o_O => void 0);
 
                 embed.setTitle("Music Resume")
-                    .setDescription(`Resuming song playback. Cause, someone joined my [voice channel](${VoiceState.channel.url}) 🙂`);
+                    .setDescription(`Resuming song playback. Cause, someone joinned my [voice channel](${VoiceState.channel.url}) 🙂`);
 
                 const message = await player.message.reply({ embeds: [embed] });
 
