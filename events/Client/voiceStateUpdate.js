@@ -4,7 +4,6 @@ export default async(client, oldState, newState) => {
     if (!player || player.state !== 1 || !player.playing) return;
 
     const embed = client.embed();
-    const playerChannel = client.channels.cache.get(player.textChannelId);
     const VoiceState = {};
 
     if (oldState.channel === null && newState.channel !== null) VoiceState.type = "Join";
@@ -33,11 +32,10 @@ export default async(client, oldState, newState) => {
                 player.pause(false);
                 player.voiceStatePausedMessage.delete().catch(o_O => void 0);
 
-                embed.setColor("LightGrey")
-                    .setTitle("Queue Resume")
-                    .setDescription("Resuming playback because all of you left me with music to play all alone.");
+                embed.setTitle("Music Resume")
+                    .setDescription(`Resuming song playback. Cause, there is a user joined **[${VoiceState.channel.name}](${VoiceState.channel.url})**.`);
 
-                const message = await playerChannel.send({ embeds: [embed] });
+                const message = await player.message.reply({ embeds: [embed] });
 
                 setTimeout(() => message.delete().catch(o_O => void 0), 10000);
             }
@@ -46,11 +44,11 @@ export default async(client, oldState, newState) => {
             if (VoiceState.members.size === 0 && !player.paused && player.playing) {
                 player.pause(true);
 
-                embed.setColor("DarkGrey")
-                    .setTitle("Queue Paused")
-                    .setDescription("The player has been paused because everybody left.");
+                embed.setColor("LightGrey")
+                    .setTitle("Music Paused")
+                    .setDescription(`Current song has been paused. Cause, everybody out **[${VoiceState.channel.name}](${VoiceState.channel.url})**.`);
 
-                const message = await playerChannel.send({ embeds: [embed] });
+                const message = await player.message.reply({ embeds: [embed] });
 
                 player.voiceStatePausedMessage = message;
             }
