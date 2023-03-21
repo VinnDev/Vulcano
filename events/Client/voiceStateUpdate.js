@@ -34,7 +34,7 @@ export default async(client, oldState, newState) => {
                 player.voiceStatePausedMessage.delete().catch(o_O => void 0);
 
                 embed.setTitle("Music Resume")
-                    .setDescription(`Resuming song playback. Cause, someone joined **[${VoiceState.channel.name}](${VoiceState.channel.url})**.`);
+                    .setDescription(`Resuming song playback. Cause, someone joined **[🔊 ${VoiceState.channel.name}](${VoiceState.channel.url})**.`);
 
                 const message = await player.message.reply({ embeds: [embed] });
 
@@ -45,8 +45,8 @@ export default async(client, oldState, newState) => {
             if (oldState.channelId && !newState.channelId && newState.id === client.user.id && player.playing) {
                 player.destroy();
 
-                embed.setColor('Red')
-                    .setDescription(`I have been kicked from **[${oldState.channel.name}](${oldState.channel.url})** :slight_frown:`);
+                embed.setColor(0xff0000)
+                    .setDescription(`I have been kicked from **[🔊 ${oldState.channel.name}](${oldState.channel.url})** :slight_frown:`);
 
                 playingChannel.send({ embeds: [embed] });
             }
@@ -55,7 +55,7 @@ export default async(client, oldState, newState) => {
 
                 embed.setColor("LightGrey")
                     .setTitle("Music Paused")
-                    .setDescription(`Current song has been paused! Cause, everybody out **[${VoiceState.channel.name}](${VoiceState.channel.url})**.`);
+                    .setDescription(`Current song has been paused! Cause, everybody out **[🔊 ${VoiceState.channel.name}](${VoiceState.channel.url})**.`);
 
                 const message = await player.message.reply({ embeds: [embed] });
 
