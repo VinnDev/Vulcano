@@ -42,6 +42,8 @@ export default async(client, oldState, newState) => {
             break;
         case "Leave":
             if (oldState.channelId && !newState.channelId && newState.id === client.user.id && player.playing) {
+                player.destroy();
+
                 embed.setColor('Red')
                     .setDescription("I have been kicked from the voice channel :slight_frown:");
 
