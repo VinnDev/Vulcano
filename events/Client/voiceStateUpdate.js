@@ -4,6 +4,7 @@ export default async(client, oldState, newState) => {
     if (!player || player.state !== 1) return;
 
     const embed = client.embed();
+    const playingChannel = client.channels.cache.get(player.textChannelId);
     const VoiceState = {};
 
     if (oldState.channel === null && newState.channel !== null) VoiceState.type = "Join";
