@@ -4,8 +4,8 @@
   "description": "A discord bot based on vulkava and discord.js v14",
   "main": "index.js",
   "type": "module",
-  "depedencies": {
-    "discord.js": "^14.7.1",
+  "dependencies": {
+    "discord.js": "^14.8.0",
     "undici": "^5.20.0",
     "vulkava": "^1.6.0"
   },

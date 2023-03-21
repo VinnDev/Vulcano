@@ -3,5 +3,5 @@ export default (client, player) => {
 
     const channel = client.channels.cache.get(player.textChannelId);
 
-    channel.send({ embeds: [client.embed({ description: "Queue ended!" })] });
+    channel.send({ embeds: [client.embed({ description: "Queue ended." })] });
 }
