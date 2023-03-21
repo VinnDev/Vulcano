@@ -42,7 +42,10 @@ export default async(client, oldState, newState) => {
             break;
         case "Leave":
             if (oldState.channelId && !newState.channelId && newState.id === client.user.id && player.playing) {
-                playingChannel.send({ embeds: [embed.setDescription("I have been kicked from the voice channel :slight_frown:")] });
+                embed.setColor('Red')
+                    .setDescription("I have been kicked from the voice channel :slight_frown:");
+
+                playingChannel.send({ embeds: [embed] });
             }
             if (VoiceState.members.size === 0 && !player.paused && player.playing) {
                 player.pause(true);
