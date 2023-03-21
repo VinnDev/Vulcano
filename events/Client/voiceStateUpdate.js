@@ -46,7 +46,7 @@ export default async(client, oldState, newState) => {
                 player.destroy();
 
                 embed.setColor('Red')
-                    .setDescription("I have been kicked from the voice channel :slight_frown:");
+                    .setDescription(`I have been kicked from **[${oldState.channel.name}](${oldState.channel.url})** :slight_frown:`);
 
                 playingChannel.send({ embeds: [embed] });
             }
