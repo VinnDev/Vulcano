@@ -1,7 +1,7 @@
 export default async(client, oldState, newState) => {
     const player = client.vulkava.players.get(newState.guild.id);
 
-    if (!player || player.state !== 1 || !player.playing) return;
+    if (!player || player.state !== 1) return;
 
     const embed = client.embed();
     const VoiceState = {};
@@ -33,7 +33,7 @@ export default async(client, oldState, newState) => {
                 player.voiceStatePausedMessage.delete().catch(o_O => void 0);
 
                 embed.setTitle("Music Resume")
-                    .setDescription(`Resuming song playback. Cause, there is a user joined **[${VoiceState.channel.name}](${VoiceState.channel.url})**.`);
+                    .setDescription(`Resuming song playback. Cause, someone joined **[${VoiceState.channel.name}](${VoiceState.channel.url})**.`);
 
                 const message = await player.message.reply({ embeds: [embed] });
 
@@ -41,12 +41,15 @@ export default async(client, oldState, newState) => {
             }
             break;
         case "Leave":
+            if (oldState.channelId && !newState.channelId && newState.id === client.user.id && player.playing) {
+                playingChannel.send({ embeds: [embed.setDescription("I have been kicked from the voice channel :slight_frown:")] });
+            }
             if (VoiceState.members.size === 0 && !player.paused && player.playing) {
                 player.pause(true);
 
                 embed.setColor("LightGrey")
                     .setTitle("Music Paused")
-                    .setDescription(`Current song has been paused. Cause, everybody out **[${VoiceState.channel.name}](${VoiceState.channel.url})**.`);
+                    .setDescription(`Current song has been paused! Cause, everybody out **[${VoiceState.channel.name}](${VoiceState.channel.url})**.`);
 
                 const message = await player.message.reply({ embeds: [embed] });
 
